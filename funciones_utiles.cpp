@@ -11,7 +11,7 @@ using namespace std;
   };
 
 //Función de Salida de datos.
-int SalidaDatos(imagen fichero){
+void SalidaDatos(imagen fichero){
 	
 	cout << "P2\n";
 	cout << imagen.ancho << " " << imagen.alto << "\n";
