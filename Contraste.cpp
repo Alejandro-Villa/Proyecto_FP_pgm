@@ -13,8 +13,7 @@ struct imagen{
 
   };
   
-int main(){
-	imagen matriz;
+void Constrate(imagen matriz){
 	int i;
 	int j;
 	
@@ -27,4 +26,10 @@ int main(){
 				matriz.imagen[i][j] = 255;
 		}
 	}
+}
+
+int main(){
+	
+	
+	
 }
