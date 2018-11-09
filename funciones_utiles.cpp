@@ -11,16 +11,16 @@ using namespace std;
   };
 
 //Función de Salida de datos.
-int SalidaDatos(imagen fichero){
+void SalidaDatos(imagen fichero){
 	
 	cout << "P2\n";
-	cout << imagen.ancho << " " << imagen.alto << "\n";
+	cout << fichero.ancho << " " << fichero.alto << "\n";
 	cout << "255\n";
 	
-	for(int i = 0 ; i < imagen.alto ; i++){
-		for(int j = 0 ; j < imagen.ancho ; j++){
-			cout << imagen.imagen[i][j] << " ";
-			if(j == imagen.ancho -1)
+	for(int i = 0 ; i < fichero.alto ; i++){
+		for(int j = 0 ; j < fichero.ancho ; j++){
+			cout << fichero.imagen[i][j] << " ";
+			if(j == fichero.ancho -1)
 				cout << "\n";
 		}
 	}
