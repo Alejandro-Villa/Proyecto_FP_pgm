@@ -7,13 +7,15 @@ class PGM{
        short int alto;
        short int ancho;
        short int pixel[650][650];
+       void swap(int columna1, int columna2);
+
     public:
         PGM();
         void LecturaDatos();
         void SalidaDatos();
         void Blanquear();
         void Contraste_Max();
-        
+        void Negativo();
 };
 
 int main{
@@ -69,4 +71,24 @@ void PGM::Contraste_Max(){
 				pixel[i][j] = 255;
 		}
 	}
+}
+
+void PGM::Negativo(){
+    for (int i = 0; i < ancho; i++){
+		for (int j = 0; j < alto; j++){
+			pixel[i][j] = 255 - pixel[i][j];
+		}
+    }
+}
+
+void PGM::swap(int columna1, int columna2){
+
+    for(short int i = 0; i < alto; i++){
+        short int intercambia;
+
+        intercambia = pixel[i][columna1];
+        pixel[i][columna1] = pixel[i][columna2];
+        pixel[i][columna2] = intercambia;
+    }
+
 }
