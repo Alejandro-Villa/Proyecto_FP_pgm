@@ -7,7 +7,7 @@ class PGM{
        short int alto;
        short int ancho;
        short int pixel[650][650];
-       void swap(int columna1, int columna2);
+       void Swap(int columna1, int columna2);
 
     public:
         PGM();
@@ -81,7 +81,7 @@ void PGM::Negativo(){
     }
 }
 
-void PGM::swap(int columna1, int columna2){
+void PGM::Swap(int columna1, int columna2){
 
     for(short int i = 0; i < alto; i++){
         short int intercambia;
