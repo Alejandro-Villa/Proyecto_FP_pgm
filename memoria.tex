@@ -12,6 +12,8 @@
 
 \tableofcontents
 
+\newpage
+
 \section{Descripción General del Proyecto}
 
 Este proyecto implementa una manipulación de imágenes muy sencilla empleando para ello el formato .pgm y codificando la información de la imagen en una clase de C++. El programa nos permite manejar imágenes en blanco y negro con unas dimensiones máximas de 650x650 px. Utilizando el programa podemos Rotar una imagen, Blanquear la imagen, aumentar al máximo el contraste y sacar el negativo. Luego podemos leer imágenes desde ficheros .pgm y escribirlas con el mismo formato. Pasamos a describir más en detalle las funciones:
@@ -67,9 +69,22 @@ Mi trabajo consistió en:
 
 \subsection{Alejandro Villanueva Prados}
 
-En este proyecto, mi trabajo ha consistido en gestionar el control de versiones, haciendo uso de la plataforma GitHub. Así todos los miembros hemos dispuesto de un lugar común para subir el código en el que trabajamos. Aparte también he redactado esta memoria, organizando las memorias del resto de los integrantes, añadiendo mi parte, y dar un formato a todo usando \LaTeX.
+En este proyecto, mi trabajo ha consistido en gestionar el control de versiones, haciendo uso de la plataforma GitHub. Así todos los miembros hemos dispuesto de un lugar común para subir el código en el que trabajamos. Aparte también he redactado esta memoria, organizando las memorias del resto de los integrantes, añadiendo mi parte, y dando un formato a todo usando \LaTeX.
 \\
 
-Con respecto a mi aportación al código, he implementado la función de salida de datos y también convertí el código de una versión anterior, basada en un struct, a una clase con diversos métodos, ya que así incluimos los últimos conocimientos adquiridos en la asignatura y también simplifica el código. Luego realicé la función `Swap' que intercambia dos columnas dadas de la matriz. Por último me encargué de documentar el proyecto usando Doxygen.
+Con respecto a mi aportación al código, he implementado la función de entrada de datos, que lee desde un fichero los datos que indetifican a una imagen y que permiten manejarla por el programa, y también convertí el código de una versión anterior, basada en un struct, a una clase con diversos métodos, ya que así incluimos los últimos conocimientos adquiridos en la asignatura y también simplifica el código. Luego realicé la función `Swap' que intercambia dos columnas dadas de la matriz. Por último me encargué de documentar el proyecto usando Doxygen.
+
+
+\subsection{Gerardo Tirado García}
+
+La función Contraste tiene como elemento principal una matriz llamada matriz que pertenece al struct Imagen.Dentro de la función se han creado dos variables i, j. La función consiste en dos for anidados con dos if.Gracias a los for se accede a cada elemento de la matriz y comprobamos si ese elemento es menor que 125 o mayor o igual que 125. Si el elemento es menor que 125, se le asignará el cero, y si es mayor o igual, se le asignará el 255. Por lo tanto, obtendremos una matiz en la cual sus elementos son 0 o son 255.
+
+
+\subsection{Carlos Romero Cruz}
+
+La parte que realicé en este proyecto fue la de diseñar la función de salida de datos e implementarla en el programa de manera que se crease correctamente el arhivo PGM.
+\\
+
+A la hora de iniciar la función de salida de datos, primero se escribe en el archivo la cabecera formada por la cadena mágica, el ancho y el alto de la futura imagen y el máximo valor de gris, y a continuación la sucesión de números que componen el archivo en forma de matriz con sus respectivos valores depués de haber realizado las operaciones requeridas. La función realiza la salida mediante dos bucles for anidados. El primero recorre las filas del archivo PGM mientras que el segundo recorre las columnas. En cuanto ya se han escrito los números de una fila, se inserta un salto de línea para darle el formato de matriz requerido.
 
 \end{document}
