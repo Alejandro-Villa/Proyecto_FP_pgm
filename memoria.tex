@@ -3,34 +3,37 @@
 \usepackage[utf8]{inputenc}
 
 \title{Memoria del proyecto de manipulación de imágenes .pgm mediante C++}
-\author{Alejandro Villanueva Prados}
+\author{Alejandro Villanueva Prados \and Miguel Piñar Pérez \and Francisco Bonillo González \and Gerardo Tirado García \and Carlos Romero Cruz}
 \date{}
 
 \begin{document}
 
 \maketitle
 
+\tableofcontents
+
 \section{Descripción General del Proyecto}
 
-Este proyecto PGM, el cual lo comenzamos con un struct y diversas funciones, conforme avanzamos en conocimientos en la asignatura, lo mejoramos implementando una clase con diversas funciones miembro.
-\\
-
-La clase PGM tiene como datos miembro de la clase tenemos 3 short int que hacen referencia a el alto, el ancho y  a cada elemento de una matriz 650 x 650.
-\\
-
-Hemos desarrollado las siguientes funciones miembro, las cuales comentaremos aquí brevemente:
-\\
+Este proyecto implementa una manipulación de imágenes muy sencilla empleando para ello el formato .pgm y codificando la información de la imagen en una clase de C++. El programa nos permite manejar imágenes en blanco y negro con unas dimensiones máximas de 650x650 px. Utilizando el programa podemos Rotar una imagen, Blanquear la imagen, aumentar al máximo el contraste y sacar el negativo. Luego podemos leer imágenes desde ficheros .pgm y escribirlas con el mismo formato. Pasamos a describir más en detalle las funciones:
 
 \begin{itemize}
-\item[-] Función miembro de entrada de datos. Se leen el identificador de archivo PGM (que es P2), el alto, el ancho, el valor maximo que puedo tomar el blanco (el 255).
+\item[-] Función miembro de entrada de datos. Se leen el identificador de archivo PGM (que es P2), el alto, el ancho, el valor maximo que puedo tomar el blanco (el 255). De estos valores solamente se almacena el ancho, alto y la propia imagen en forma de matriz.
 
 \item[-] Función miebro de salida de datos. Va escribiendo sucesivamente el identificador, el valor del ancho, del alto, y el el valor de cada componente de la matriz que va en el rango de 0 a 255.
 
-\item[-] Función miembro Blanquear. Pasa todos los valores de la matriz a 255, que es el valor máximo de luminosidad (el “blanco”).
+\item[-] Función miembro Blanquear. Pasa todos los valores de la matriz a 255, que es el valor máximo de luminosidad (el ``blanco").
 
-\item[-] Función miembro Contraste Máximo. Si un valor de pixel de imagen esta por debajo de la mitad (127) se manda a 0 (oscuridad máxima), en caso de que sea mayor o igual a la mitad, se manda a 255, que es mandar 
+\item[-] Función miembro Contraste Máximo. Si un valor de pixel de imagen esta por debajo de la mitad (127) este cambia a 0 (oscuridad máxima), en caso de que sea mayor o igual a la mitad, cambia a 255. Estos cambios se traducen en que todos los píxeles serán o bien blancos, o bien negros, dependiendo de su color original.
+
+\item[-] Función miembro Negativo. Modifica el valor de cada píxel al valor del píxel menos 255, que es el valor asignado a blanco.
+
+\item[-] Función miembro Rotar. Rota la imagen 90º hacia la derecha, esto se consigue primero realizando la traspuesta de la matriz y después se intercambian sucesivamente todas sus columanas, desde fuera hacia adentro. 
 
 \end{itemize}
+
+\subsection{Uso del programa}
+
+Para usar este programa, simplemente hay que añadir en la función `main` de final.cpp las órdenes que quieras que realice el programa. Por defecto, rotará la imagen. Se puede sustituir por cualquiera de las funciones miembro de la clase (Consultar documentación usando Doxygen). Para utilizar el programa ejecutar en la terminal se deben redireccionar las entradas y salidas con `$ < $' y `$ > $', respectivamente.
 
 \section{Descripción del trabajo de cada integrante}
 
@@ -64,7 +67,7 @@ Mi trabajo consistió en:
 
 \subsection{Alejandro Villanueva Prados}
 
-En este proyecto, mi trabajo ha consistido en gestionar el control de versiones, haciendo uso de la plataforma GitHub. Así todos los miembros hemos dispuesto de un lugar común para subir el código en el que trabajamos. Aparte también he redactado esta memoria, organizando las memorias del resto de los integrantes, añadiendo mi parte, y dar un formato a todo usando \LaTeX
+En este proyecto, mi trabajo ha consistido en gestionar el control de versiones, haciendo uso de la plataforma GitHub. Así todos los miembros hemos dispuesto de un lugar común para subir el código en el que trabajamos. Aparte también he redactado esta memoria, organizando las memorias del resto de los integrantes, añadiendo mi parte, y dar un formato a todo usando \LaTeX.
 \\
 
 Con respecto a mi aportación al código, he implementado la función de salida de datos y también convertí el código de una versión anterior, basada en un struct, a una clase con diversos métodos, ya que así incluimos los últimos conocimientos adquiridos en la asignatura y también simplifica el código. Luego realicé la función `Swap' que intercambia dos columnas dadas de la matriz. Por último me encargué de documentar el proyecto usando Doxygen.
